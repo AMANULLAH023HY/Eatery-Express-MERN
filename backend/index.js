@@ -1,31 +1,14 @@
-// const express = require('express')
-// const app = express()
-// const port = 5000;
-
-
-// const mongoDB = require("./db");
-// mongoDB();
-
-
-
-// app.get('/', (req, res) => {
-//     res.send('Hello World!')
-// })
-
-// app.listen(port, () => {
-//     console.log(`Example app listening on port ${port}`)
-// })
-
-
-
 
 const express = require('express');
 const app = express();
 
-const connectToMongoDB = require("./db");
-connectToMongoDB();
-
+// const connectToMongoDB = require("./db");
+// connectToMongoDB();
 const port = 5000;
+
+const connectionToDB = require('./db');
+connectionToDB()
+
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
