@@ -1,14 +1,14 @@
 
 const mongoose = require('mongoose');
 
-const  MONGO_URI = "mongodb+srv://amanaullah23:aman123@mern-estate.8ursw1g.mongodb.net/?retryWrites=true&w=majority";
+const  MONGO_URI = "mongodb+srv://food_App:food123@cluster0.wzjyk5u.mongodb.net/gofood?retryWrites=true&w=majority";
 
 mongoose.set('strictQuery', false);
 
 const connectionToDB = async()=>{
 
     try { 
-        const {connection}= await mongoose.connect(process.env.MONGO_URI || `mongodb://127.0.0.1:27017/Food_App`
+        const {connection}= await mongoose.connect(MONGO_URI || `mongodb://127.0.0.1:27017/Food_App`
         );
     
         if(connection){
