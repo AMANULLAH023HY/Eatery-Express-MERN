@@ -5,7 +5,17 @@ const app = express();
 const port = 5000;
 
 const connectionToDB = require('./db');
-connectionToDB()
+connectionToDB();
+
+app.use((req,res,next)=>{
+  res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
+
+  res.header(
+    "Access-control-Allow-Headers",
+    "Origin,X-Requested-With. Content-Type, Accept"
+  );
+  next();
+})
 
 
 app.get('/', (req, res) => {

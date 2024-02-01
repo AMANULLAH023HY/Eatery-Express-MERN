@@ -21,11 +21,6 @@ router.post('/createuser',
 
     try {
         User.create({
-            // name:"Adil",
-            // email:"aman123@gmail.com",
-            // password:"123456",
-            // location:"hyderabad"
-            
             name:req.body.name,
             email:req.body.email,
             password:req.body.password,
