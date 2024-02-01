@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate()
 
   const [credential, setCredential] = useState({email:"",password:""});
 
   const handleSubmit =async(e)=>{
       e.preventDefault();
-      const response =await fetch("http://localhost:5000/api/createuser",{
+      const response =await fetch("http://localhost:5000/api/loginuser",{
           method:"POST",
           hesders:{
               'Content-Type':'application/json'
@@ -25,6 +26,11 @@ export default function Login() {
       if(!json.success){
           alert("Enter valid credentials")
       }
+
+      if(json.success){
+        
+        navigate('/')
+    }
       
       
 
@@ -59,7 +65,7 @@ setCredential({...credential,[event.target.name]:event.target.value})
   
   
   <button type="submit" className="btn btn-success">Submit</button>
-  <Link to='/login' className="m-3 btn btn-danger">Already a user</Link>
+  <Link to='/createuser' className="m-3 btn btn-danger">I'm a new user</Link>
 </form>
 </div>
 
