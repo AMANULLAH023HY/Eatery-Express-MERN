@@ -1,37 +1,78 @@
 
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
-const  MONGO_URI = "mongodb+srv://food_App:food123@cluster0.wzjyk5u.mongodb.net/gofood?retryWrites=true&w=majority";
+// const  MONGO_URI = "mongodb+srv://food_App:food123@cluster0.wzjyk5u.mongodb.net/gofood?retryWrites=true&w=majority";
 
-mongoose.set('strictQuery', false);
+// // mongoose.set('strictQuery', false);
 
-const connectionToDB = async()=>{
+// const connectionToDB = async()=>{
 
-    try { 
-        const {connection}= await mongoose.connect(MONGO_URI || `mongodb://127.0.0.1:27017/Food_App`
-        );
+//     try { 
+//         const {connection}= await mongoose.connect(MONGO_URI || `mongodb://127.0.0.1:27017/Food_App`
+//         );
     
-        if(connection){
-            console.log(`Connected to mongodb ${connection.host}`);
+//         if(connection){
+//             console.log(`Connected to mongodb ${connection.host}`);
 
-            const  fetch_data =await mongoose.connection.db.collection("listings");
-            fetch_data.find({}).toArray(function(err,data){
-              if(err) console.log(err);
+//             const  fetch_data =await mongoose.connection.db.collection("food_items");
+//             fetch_data.find({}).toArray(function(err,data){
+//               if(err) console.log(err);
               
-              else console.log(data);
+//               else {
+//                 global.food_items = data;
+//                 console.log(global.food_items)
+//               }
                 
 
 
               
-            })
-        }
-    } catch (error) {
-        console.log(error);
-        process.exit(1);
+//             })
+//         }
+//     } catch (error) {
+//         console.log(error);
+//         process.exit(1);
         
+//     }
+// }
+
+// module.exports = connectionToDB;
+
+
+
+
+
+
+
+
+
+const mongoose = require('mongoose');
+
+const MONGO_URI = "mongodb+srv://food_App:food123@cluster0.wzjyk5u.mongodb.net/gofood?retryWrites=true&w=majority";
+
+const connectionToDB = async () => {
+  try {
+    const { connection } = await mongoose.connect(MONGO_URI || `mongodb://127.0.0.1:27017/Food_App`);
+
+    if (connection) {
+      console.log(`Connected to MongoDB: ${connection.host}`);
+
+      // Access the collection directly
+      const collection = mongoose.connection.collection("food_items");
+
+      // Fetch data using the find method
+      const data = await collection.find({}).toArray();
+
+      // Do something with the fetched data
+      console.log(data);
+      global.food_items = data;
     }
-}
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error.message);
+    process.exit(1);
+  }
+};
 
 module.exports = connectionToDB;
+
 
 
