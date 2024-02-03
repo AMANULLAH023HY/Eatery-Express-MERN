@@ -118,8 +118,8 @@ const connectionToDB = async () => {
       const catData = await foodCategory.find({}).toArray();
 
       // Do something with the fetched data
-      console.log(data); // Logged data from the 'food_items' collection
-      console.log(catData); // Logged data from the 'foodCategory' collection
+      // console.log(data); // Logged data from the 'food_items' collection
+      // console.log(catData); // Logged data from the 'foodCategory' collection
 
       // Store data in global variables
       global.food_items = data;
