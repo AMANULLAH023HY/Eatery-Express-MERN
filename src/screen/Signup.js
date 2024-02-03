@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 function Signup(){
     const [credential, setCredential] = useState({name:"", email:"",password:"",geolocation:""});
 
-    const handleSubmit =async(e)=>{
+    const handleSubmit =  async(e)=>{
         e.preventDefault();
-        const response =await fetch("http://localhost:5000/api/createuser",{
+        const response = await fetch("http://localhost:5000/api/createuser",{
             method:"POST",
-            hesders:{
+            headers:{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({

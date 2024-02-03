@@ -144,7 +144,7 @@ export default function Home() {
         >
           <Card
             foodName={filterItems.name}
-            options={filterItems.options[1]}
+            options={filterItems.options}
             imgSrc={filterItems.img}
           />
         </div>
