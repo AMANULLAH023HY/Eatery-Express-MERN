@@ -26,11 +26,7 @@ function Signup(){
             alert("Enter valid credentials")
         }
         
-        
-
     }
-
-
     const onChange = (event)=>{
 setCredential({...credential,[event.target.name]:event.target.value})
    
