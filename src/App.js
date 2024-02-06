@@ -15,6 +15,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import Signup from './screen/Signup';
 import CartProvider from './components/ContextReducer';
+import Cart from './screen/Cart';
 
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/login" element={<Login/>} />
           <Route exact path="/createuser" element={<Signup/>} />
+          <Route  path="/cart" element={<Cart/>} />
 
 
 
