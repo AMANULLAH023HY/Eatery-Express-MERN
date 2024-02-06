@@ -7,7 +7,7 @@ export default function Cart() {
   if (data.length === 0) {
     return (
       <div>
-        <div className="m-5 w-100 text-center fs-3">The Cart is Empty</div>
+        <div className="m-5 w-100 text-center text-white fs-3">The Cart is Empty</div>
       </div>
     );
   }
@@ -15,8 +15,8 @@ export default function Cart() {
   let totalPrice = data.reduce((total, food) => total + food.price, 0);
   return (
     <div>
-      <div className=" conatiner m-auto mt-5 table-responsive table-responsive-sm table-responsive-md ">
-        <table className="table table-hover">
+      <div className=" conatiner m-auto mt-5 table-responsive table-responsive-sm table-responsive-md text-white">
+        <table className="table table-hover text-white">
           <thead className="text-success fs-4 ">
             <tr>
               <th className="col">#</th>
@@ -37,7 +37,9 @@ export default function Cart() {
                 <td>{food.price}</td>
                 <td>
                   <button type="button" className="btn p-0 ">
-                    <img
+                    <img 
+                    className="h-10 w-10"
+                    style={{height:"10%", width:"10%"}}
                       src={trash}
                       alt="Delete"
                       onClick={() => {
