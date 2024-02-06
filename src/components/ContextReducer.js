@@ -60,6 +60,11 @@ const reducer = (state, action) => {
           price: action.price,
         },
       ];
+      case "REMOVE":
+        let newArr = [...state]
+        newArr.splice(action.index,1)
+
+        return newArr;
 
     default:
       console.log("Error in reducer");
