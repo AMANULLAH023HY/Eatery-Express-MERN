@@ -1,5 +1,3 @@
-
-
 import { createContext, useContext, useReducer } from "react";
 
 const CartStateContext = createContext();
@@ -26,7 +24,7 @@ const reducer = (state, action) => {
       return newArr;
 
     case "UPDATE":
-      let arr = [...state]
+      let arr = [...state];
       arr.find((food, index) => {
         if (food.id === action.id) {
           console.log(
@@ -40,9 +38,13 @@ const reducer = (state, action) => {
             price: action.price + food.price,
           };
         }
-        return arr
+        return arr;
       });
-      return arr
+      return arr;
+   
+      case "DROP":
+      let emptyArr = []
+      return emptyArr
 
     default:
       console.log("Error in reducer");
