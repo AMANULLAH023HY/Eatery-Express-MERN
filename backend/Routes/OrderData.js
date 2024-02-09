@@ -1,11 +1,9 @@
 const express = require('express');
-
 const router = express.Router();
-
 const Order = require('../Models/Orders')
 
 router.post('/orderData',async(req,res)=>{
-    let data = req.body.order_data;
+    let data = req.body.order_data
     
     await data.splice(0,0,{ Order_date:req.body.order_date});
 
@@ -16,23 +14,25 @@ router.post('/orderData',async(req,res)=>{
     if(eId === null ){
 
         try {
-            await Order.create({
+                await Order.create({
 
-                email:req.body.email,
+                    email:req.body.email,
 
-                order_data:[data]
-            }).then(()=>{
-                res.status(200).json({
-                    success:true,
-                    message:"Order Successfull!"
+                    order_data:[data]
+                }).then(()=>{
+                    res.status(200).json({
+                        success:true,
+                        message:"Order Successfull!"
+                    })
                 })
-            })
-        } catch (error) {
+                console.log("Insert")
+        } 
+        catch (error) {
 
-            res.status(400).json({
-                success:false,
-                message:error || "Order Failed"
-            })
+                    res.status(401).json({
+                        success:false,
+                        message:error || "Order Failed"
+                    })
             
         }
     }
@@ -47,7 +47,7 @@ router.post('/orderData',async(req,res)=>{
                     })
                 })
         } catch (error) {
-            res.status(400).json({
+            res.status(402).json({
                 success:false,
                 message:`Server Error , ${error.message}`
             })

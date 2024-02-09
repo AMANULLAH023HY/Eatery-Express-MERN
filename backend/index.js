@@ -1,12 +1,10 @@
-
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
-const port = 5000;
-
 const connectionToDB = require('./db');
 connectionToDB();
+
+const port = 5000;
 
 app.use(cors({
   origin: "http://localhost:3000",
@@ -20,7 +18,7 @@ app.get('/', (req, res) => {
 app.use(express.json());
 app.use("/api", require("./Routes/CreateUser"));
 app.use("/api", require("./Routes/DisplayData"));
-app.use("/api", require("./Routes/OrdersData"));
+app.use("/api", require("./Routes/OrderData"));
 
 
 app.listen(port, () => {
