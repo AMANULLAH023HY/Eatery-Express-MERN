@@ -21,7 +21,7 @@ export default function NavBar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
         <div className="container-fluid">
           <Link className="navbar-brand fs-1 fst-italic" to="/">
-            GoFood
+            RoseFood
           </Link>
           <button
             className="navbar-toggler"
